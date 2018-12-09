@@ -7846,11 +7846,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git_Repo\\Repo\\UserFunctions\\UserActions\\UserActionsFunctionApp.csproj",
+      "projectUniqueName": "C:\\work\\GitHub\\Azure-Serverless\\UserActionsFunctionApp\\UserActionsFunctionApp.csproj",
       "projectName": "UserActionsFunctionApp",
-      "projectPath": "C:\\Git_Repo\\Repo\\UserFunctions\\UserActions\\UserActionsFunctionApp.csproj",
+      "projectPath": "C:\\work\\GitHub\\Azure-Serverless\\UserActionsFunctionApp\\UserActionsFunctionApp.csproj",
       "packagesPath": "C:\\Users\\ASONI\\.nuget\\packages\\",
-      "outputPath": "C:\\Git_Repo\\Repo\\UserFunctions\\UserActions\\obj\\",
+      "outputPath": "C:\\work\\GitHub\\Azure-Serverless\\UserActionsFunctionApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
