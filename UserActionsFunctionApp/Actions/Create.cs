@@ -29,14 +29,14 @@
 
             _logger.LogInformation("Initialize the dashboard client and create users in Users Database.");
 
-            var authyClient = _clientFactory.Create(Convert.ToBoolean(Configuration["Settings.Sandbox"]), appApiKey,
+            var client = _clientFactory.Create(Convert.ToBoolean(Configuration["Settings.Sandbox"]), appApiKey,
                 signingKey, ownerAccessKey);
 
-            var activeUsers = authyClient.ListUsers(null, StatusFilter.Active);
+            var activeUsers = client.ListUsers(null, StatusFilter.Active);
 
             if (activeUsers.Count <= 0)
             {
-                _logger.LogInformation($"No active or suspended users exist for ({subscriptionId}) in authy.");
+                _logger.LogInformation($"No active or suspended users exist for ({subscriptionId}).");
             }
             else
             {
@@ -44,7 +44,7 @@
 
                 var usersToCreate = activeUsers.Where(u =>
                         !activeUsersInDb.Any(x =>
-                            x.AuthyId == u.authy_id.ToString() && x.SubscriptionId.Equals(subscriptionId)))
+                            x.UserId == u.user_id.ToString() && x.SubscriptionId.Equals(subscriptionId)))
                     .ToList();
 
                 if (usersToCreate.Count > 0)
@@ -53,7 +53,7 @@
                     {
                         userRecords.Add(new UserRecord
                         {
-                            AuthyId = user.authy_id.ToString(),
+                            UserId = user.user_id.ToString(),
                             Email = user.email,
                             Phone = user.cellphone
                         });

@@ -36,9 +36,9 @@
             _logger.LogInformation("Initialize the dashboard client and, retrieve all the purged users.");
 
             foreach (var usersToDelete in from user in purgedUsers
-                                          let authyClient = _clientFactory.Create(Convert.ToBoolean(Configuration["Settings.Sandbox"]), user.Key.AppApiKey, user.Key.SigningKey, user.Key.OwnerAccessKey)
-                                          let authyPurgedUsers = authyClient.ListUsers(null, StatusFilter.Deleted)
-                                          select user.Where(x => !authyPurgedUsers.Select(y => y.authy_id.ToString()).Contains(x.AuthyId)).ToList() into usersToDelete
+                                          let client = _clientFactory.Create(Convert.ToBoolean(Configuration["Settings.Sandbox"]), user.Key.AppApiKey, user.Key.SigningKey, user.Key.OwnerAccessKey)
+                                          let purgedUsers = client.ListUsers(null, StatusFilter.Deleted)
+                                          select user.Where(x => !purgedUsers.Select(y => y.user_id.ToString()).Contains(x.UserId)).ToList() into usersToDelete
                                           where usersToDelete.Count > 0
                                           select usersToDelete)
             {
