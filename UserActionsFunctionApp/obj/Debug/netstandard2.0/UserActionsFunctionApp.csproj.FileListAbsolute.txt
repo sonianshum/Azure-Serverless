@@ -1,3 +1,4 @@
-C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.csproj.CoreCompileInputs.cache
-C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfoInputs.cache
-C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfo.cs
+C:\work\GitHub\Azure-Serverless\UserActionsFunctionApp\obj\Debug\netstandard2.0\UserActionsFunctionApp.csprojAssemblyReference.cache
+C:\work\GitHub\Azure-Serverless\UserActionsFunctionApp\obj\Debug\netstandard2.0\UserActionsFunctionApp.csproj.CoreCompileInputs.cache
+C:\work\GitHub\Azure-Serverless\UserActionsFunctionApp\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfoInputs.cache
+C:\work\GitHub\Azure-Serverless\UserActionsFunctionApp\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfo.cs
