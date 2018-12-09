@@ -1,0 +1,3 @@
+C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.csproj.CoreCompileInputs.cache
+C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfoInputs.cache
+C:\Git_Repo\Repo\UserFunctions\UserActions\obj\Debug\netstandard2.0\UserActionsFunctionApp.AssemblyInfo.cs

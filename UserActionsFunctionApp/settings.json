@@ -1,0 +1,13 @@
+{
+  "Storage": {
+    "DatabaseType": "Sql",
+    "ConnectionString": "Data Source=__storage_server__;User Id=__storage_user_id__;Password=__storage_user_password__;Initial Catalog=Subscriptions;MultipleActiveResultSets=True;Integrated Security=false"
+  },
+  "Settings": {
+    "Sandbox": "false"
+  },
+  "ServiceBus": {
+    "Name": "usersqueue",
+    "ConnectionString": "Endpoint=sb://__userServiceBusNameSpace__.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=__servicebus_key__"
+  }
+}
