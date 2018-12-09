@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{3DE7EE
 	ProjectSection(SolutionItems) = preProject
 		Deploy\EventsParameters-Dev.json = Deploy\EventsParameters-Dev.json
 		Deploy\EventsTemplate.json = Deploy\EventsTemplate.json
-		Deploy\Readme.txt = Deploy\Readme.txt
 		Deploy\ServiceParameters-Dev.json = Deploy\ServiceParameters-Dev.json
 		Deploy\ServiceTemplate.json = Deploy\ServiceTemplate.json
 	EndProjectSection

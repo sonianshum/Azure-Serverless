@@ -5116,11 +5116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git_Repo\\Repo\\EventsReportingService\\test\\EventReportingService.Tests\\EventReportingService.Tests.csproj",
+      "projectUniqueName": "C:\\work\\GitHub\\Azure-Serverless\\EventsReportingService\\test\\EventReportingService.Tests\\EventReportingService.Tests.csproj",
       "projectName": "EventReportService.Tests",
-      "projectPath": "C:\\Git_Repo\\Repo\\EventsReportingService\\test\\EventReportingService.Tests\\EventReportingService.Tests.csproj",
+      "projectPath": "C:\\work\\GitHub\\Azure-Serverless\\EventsReportingService\\test\\EventReportingService.Tests\\EventReportingService.Tests.csproj",
       "packagesPath": "C:\\Users\\ASONI\\.nuget\\packages\\",
-      "outputPath": "C:\\Git_Repo\\Repo\\EventsReportingService\\test\\EventReportingService.Tests\\obj\\",
+      "outputPath": "C:\\work\\GitHub\\Azure-Serverless\\EventsReportingService\\test\\EventReportingService.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5139,8 +5139,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Git_Repo\\Repo\\EventsReportingService\\src\\EventReportingService\\EventReportingService.csproj": {
-              "projectPath": "C:\\Git_Repo\\Repo\\EventsReportingService\\src\\EventReportingService\\EventReportingService.csproj"
+            "C:\\work\\GitHub\\Azure-Serverless\\EventsReportingService\\src\\EventReportingService\\EventReportingService.csproj": {
+              "projectPath": "C:\\work\\GitHub\\Azure-Serverless\\EventsReportingService\\src\\EventReportingService\\EventReportingService.csproj"
             }
           }
         }
