@@ -1,7 +1,6 @@
 # Azure-Serverless
 
 - EventReportingService have 3 HttpTrigger functions. The main functionality of this service is to log the events and History of events which is based on Subscription(s), subscribed to an EventGrid.
-So the Infrastructure is if any cloud service which is subscribed in an eventgrid with some rules which are based on some events.
 
 - UserActionFunctionApp conatins 2 Time Trigger Functions and a ServiceBus Trigger Function.
 
