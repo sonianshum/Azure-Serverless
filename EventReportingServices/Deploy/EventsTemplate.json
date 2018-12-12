@@ -1,0 +1,99 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "eventGridApiVersion": "2017-06-15-preview",
+    "functionAppApiVersion": "2016-08-01",
+    "EventServiceResourceGroup": "[concat('eventreportingservice-', parameters('environmentName'))]",
+    "eventGridName": "[concat(parameters('environmentName'), '-eventgrid')]",
+    "storageEventSubscriptionName": "[concat('eventreportservice-', parameters('environmentName'), '-storageeventsubscription')]",
+    "eventHistorySubscriptionName": "[concat('eventreportservice-', parameters('environmentName'), '-eventhistorysubscription')]",
+    "metricsSubscriptionName": "[concat('eventreportservice-', parameters('environmentName'), '-metricssubscription')]",
+    "functionAppName": "[concat('eventreportservice-', parameters('environmentName'), '-function')]",
+    "storageEventFunctionName": "StoreStorageEvents",
+    "eventHistoryFunctionName": "StoreEventHistory",
+    "metricsFunctionName": "UpdateMetrics"
+  },
+  "parameters": {
+    "environmentName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the environment to provision."
+      }
+    },
+    "eventGridLocation": {
+      "type": "string",
+      "defaultValue": "West Central US",
+      "metadata": {
+        "description": "The location of Event Grid."
+      }
+    }
+  },
+  "resources": [
+    {
+      "name": "[concat(variables('eventGridName'), '/Microsoft.EventGrid/', variables('storageEventSubscriptionName'))]",
+      "type": "Microsoft.EventGrid/topics/providers/eventSubscriptions",
+      "location": "[parameters('eventGridLocation')]",
+      "apiVersion": "[variables('eventGridApiVersion')]",
+      "properties": {
+        "publisherName": "[variables('eventGridName')]",
+        "destination": {
+          "endpointType": "WebHook",
+          "properties": {
+            "endpointUrl": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/', variables('storageEventFunctionName'), '?code=', listsecrets(resourceId(variables('EventServiceResourceGroup'), 'Microsoft.Web/sites/Functions', variables('functionAppName'), variables('storageEventFunctionName')), variables('functionAppApiVersion')).key)]"
+          }
+        },
+        "filter": {
+          "includedEventTypes": [ "StorageEvent" ]
+        }
+      }
+    },
+    {
+      "name": "[concat(variables('eventGridName'), '/Microsoft.EventGrid/', variables('eventHistorySubscriptionName'))]",
+      "type": "Microsoft.EventGrid/topics/providers/eventSubscriptions",
+      "location": "[parameters('eventGridLocation')]",
+      "apiVersion": "[variables('eventGridApiVersion')]",
+      "properties": {
+        "publisherName": "[variables('eventGridName')]",
+        "destination": {
+          "endpointType": "WebHook",
+          "properties": {
+            "endpointUrl": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/', variables('eventHistoryFunctionName'), '?code=', listsecrets(resourceId(variables('EventServiceResourceGroup'), 'Microsoft.Web/sites/Functions', variables('functionAppName'), variables('eventHistoryFunctionName')), variables('functionAppApiVersion')).key)]"
+          }
+        }
+      }
+    },
+    {
+      "name": "[concat(variables('eventGridName'), '/Microsoft.EventGrid/', variables('metricsSubscriptionName'))]",
+      "type": "Microsoft.EventGrid/topics/providers/eventSubscriptions",
+      "location": "[parameters('eventGridLocation')]",
+      "apiVersion": "[variables('eventGridApiVersion')]",
+      "properties": {
+        "publisherName": "[variables('eventGridName')]",
+        "destination": {
+          "endpointType": "WebHook",
+          "properties": {
+            "endpointUrl": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/', variables('metricsFunctionName'), '?code=', listsecrets(resourceId(variables('EventServiceResourceGroup'), 'Microsoft.Web/sites/Functions', variables('functionAppName'), variables('metricsFunctionName')), variables('functionAppApiVersion')).key)]"
+          }
+        },
+        "filter": {
+          "includedEventTypes": [
+            "UserCreated",
+            "UserDeleted",
+            "PushNotificationSent",
+            "OtpVerification",
+            "CollectorModuleDataCollected",
+            "DataSourceDisabled",
+            "DataSourceEnabled",
+            "DataSourceDeleted",
+            "ConnectorProvisioned",
+            "ConnectorDeleted",
+            "ObjectCreated",
+            "ObjectModified",
+            "ObjectDeleted"
+          ]
+        }
+      }
+    }
+  ]
+}

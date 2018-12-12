@@ -1,0 +1,17 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions.Generator-1.0.6",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "methods": [
+        "post"
+      ],
+      "authLevel": "function",
+      "name": "gridEvents"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/EventReportService.dll",
+  "entryPoint": "EventReportingService.Functions.StoreStorageEvents.Run"
+}
